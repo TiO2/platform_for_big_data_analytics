@@ -1,0 +1,22 @@
+{
+"blueprint" : "my_blueprint2",
+"default_password" : "hadoop",
+"host_groups" :[
+   {
+     "name" : "host_group_1",
+     "hosts" : [
+       {
+         "fqdn" : "ip-172-31-7-158.ec2.internal"
+       }
+     ]
+   },
+   {
+     "name" : "host_group_2",
+     "hosts" : [
+       {
+         "fqdn" : "ip-172-31-7-157.ec2.internal"
+       }
+     ]
+   }
+]
+}
