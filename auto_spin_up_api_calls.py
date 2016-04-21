@@ -1,9 +1,12 @@
 #Methods to make REST API-calls to Transcirrus Box
 from constants import *
+from utils import *
 import requests
 import json
+import logging
 
 
+logging.basicConfig(filename='api_calls_log.log', level=logging.DEBUG)
 #There will be two sequence of operations - 1. Create    2. Delete
 
 #Sequence of create operations        
@@ -31,9 +34,9 @@ def launch_new_instance(instance_name, image_id, instance_specification_id):
         return response.status_code, instance_id
 
     except:
-        print 'Error ! Unexpected value returned'
-
-
+        logging.info('exception in launch_new_instance')
+    
+       
 
 #Create a New Floating IP
 def create_new_floating_ip():
@@ -43,21 +46,19 @@ def create_new_floating_ip():
         request_url = base_url + 'floating_ips'
         print request_url
 
-        #add network_id here
         data = "{\"network_id\":\"" + network_id + "\"," + \
                "\"project_id\":\"" + project_id + "\" }"
         print data + '\n'
         response = requests.post(request_url, headers = headers, data = data)
         print response.text + '\n'
         r = response.json()
-
         floating_ip_id = r['floating_ip']['id']
-        return floating_ip_id
+        return response.status_code, floating_ip_id
 
     except:
-        print 'Error ! Unexpected value returned'
-
-
+        logging.info('exception in create_new_floating_ip')
+        
+    
 
 #Add the floating IP to the newly created instance
 def add_floating_ip_to_instance(instance_id, floating_ip_id):
@@ -67,7 +68,6 @@ def add_floating_ip_to_instance(instance_id, floating_ip_id):
         request_url = base_url + 'floating_ips/' + floating_ip_id + '/action'
         print request_url
 
-        #add network_id here
         data = "{\"action\": \"add\"," + \
                "\"instance_id\":\"" + instance_id + "\"," + \
                "\"project_id\":\"" + project_id + "\" }"
@@ -76,15 +76,13 @@ def add_floating_ip_to_instance(instance_id, floating_ip_id):
         response = requests.post(request_url, headers = headers, data = data)
         print response.text + '\n'
         r = response.json()
-
-        #return floating ip address to calling program
         floating_ip_addr = r['add']['address']
         instance_name = r['add']['instance_name']
-        return floating_ip_addr, instance_name
-        
+        return response.status_code, floating_ip_addr        
 
     except:
-        print 'Error ! Unexpected value returned'
+        logging.info('exception in add_floating_ip_to_instance')
+        
 
 
 
@@ -103,7 +101,7 @@ def delete_instance(instance_id):
         return response.status_code
 
     except:
-        print 'Error ! Unexpected value returned'
+        logging.info('error in delete_instance')
 
 
 def delete_unused_floating_ip(floating_ip_id):
@@ -118,7 +116,7 @@ def delete_unused_floating_ip(floating_ip_id):
         return response.status_code
 
     except:
-        print 'Error ! Unexpected value returned'
+        logging.info('error in delete_unused_floating_ip')
 
 
 

@@ -1,95 +1,60 @@
 from auto_spin_up_api_calls import *
-from utils import *
-
-###Create instance - sequence of API calls
-##instance_id = launch_new_instance(instance_name, instance_specification_id, volume_name, volume_size, volume_type)
-##floating_ip_id = create_new_floating_ip()
-##floating_ip_addr, instance = add_floating_ip_to_instance(instance_id, floating_ip_id)
-##print floating_ip_add
-
-#Delete instance - sequence of API calls
-##deleted_instance_id = delete_instance(instance_id)
-##deleted_floating_ip_id = delete_unused_floating_ip(floating_ip_id)
-
 
 #CREATE CLUSTER
-def create_cluster(number_of_nodes, master_spec_name, slave_spec_name):
+def create_cluster(number_of_nodes, spec_name):
 
     try:
         
         nodes = number_of_nodes
-        master_name = 'master'
-        slave_name = 'slave'
 
-        m_image_id = get_image_id('CentOS')
-        s_image_id = get_image_id('CentOS')
+        image_id = get_image_id('CentOS')
+        spec_id = get_specification_id(spec_name)
+        print spec_id + '\n'
 
-        m_spec_id = get_specification_id(master_spec_name)
-        print m_spec_id + '\n'
-
-        if (slave_spec_name is not ''):
-            s_spec_id = get_specification_id(slave_spec_name)
-            print s_spec_id + '\n'
-        else:
-            s_spec_id = ''
-            
-
-        #create master
-        m_inst_status, m_inst_id = launch_new_instance('master', m_image_id, m_spec_id)
-        print 'status of master ' + str(m_inst_status) + '\n'
-        if (m_inst_status == 200):
-            m_floating_ip_id = create_new_floating_ip()
-            m_floating_ip_addr, m_inst_name = add_floating_ip_to_instance(m_inst_id, m_floating_ip_id)
-            live_inst_list[m_inst_name] = m_inst_id
-            live_floating_ip_list[m_inst_name] = m_floating_ip_addr
-            live_floating_ip_id_list[m_inst_name] = m_floating_ip_id
-            nodes = nodes - 1
-            print 'number of slave nodes ' + str(nodes)
-        else:
-            print 'Error in creating master'
-            return
-
-        #create slaves
         if (nodes > 0):
+            while(nodes > 0):
+                vm_name = 'VM' + str(str(number_of_nodes - nodes + 1))                
+                inst_status, inst_id = launch_new_instance(vm_name, image_id, spec_id)
+                print 'status of ' + vm_name + ' ' + str(inst_status) + '\n'
 
-            while(nodes):
-                if (m_inst_status == 200):
-                    s_inst_status, s_inst_id = launch_new_instance('slave' + str(number_of_nodes - nodes), s_image_id, s_spec_id)
-                    print 'status of slave' + str(number_of_nodes - nodes) + ' ' + str(s_inst_status) + '\n'
-                    if (s_inst_status == 200):
-                        s_floating_ip_id = create_new_floating_ip()
-                        s_floating_ip_addr, s_inst_name = add_floating_ip_to_instance(s_inst_id, s_floating_ip_id)
-                        live_inst_list[s_inst_name] = s_inst_id
-                        live_floating_ip_list[s_inst_name] = s_floating_ip_addr
-                        live_floating_ip_id_list[s_inst_name] = s_floating_ip_id
+                if (inst_status == 200):
+                    live_inst_list[vm_name] = inst_id
+                    fltg_ip_status, floating_ip_id = create_new_floating_ip()
+                    if (fltg_ip_status == 200):
+                        live_floating_ip_id_list[vm_name] = floating_ip_id
+                        add_fltg_status, floating_ip_addr = add_floating_ip_to_instance(inst_id, floating_ip_id)
+                        if (add_fltg_status == 200):
+                            live_floating_ip_list[vm_name] = floating_ip_addr
+                            nodes = nodes - 1
+                        else:
+                            logging.info('creating instance failed - issue - ' + vm_name + ' floating IP could not be attached')                            
                     else:
-                        print 'Error in creating slave. Slave could not be created'
-                        return
-                
-                nodes = nodes - 1
-                print 'number of slaves left ' + str(nodes) + '\n'
-                
-        else:
-            print 'Master node set up. No slaves to create'
+                        logging.info('creating instance failed - issue - ' + vm_name + ' floating IP could not be created')                    
+                else:
+                    logging.info('creating instance failed - issue - ' + vm_name + ' could not be created')
 
+                print 'number of nodes left ' + str(nodes) + '\n'
+
+
+        
+        print live_inst_list 
+        print live_floating_ip_list 
+        print live_floating_ip_id_list
+
+        if(nodes == 0):
+            print 'All nodes created successfully'
+            return True
+                
     except:
-        print 'Error in creating VMs'
-
-
-    print live_inst_list
-    print '\n\r'
-    print live_floating_ip_list
-    print '\n\r'
-    print live_floating_ip_id_list
-
-    return
+        logging.debug('exception in create_cluster')
+        return False
 
 
 
 #DELETE CLUSTER
-def delete_cluster(command):
+def perform_cluster_cleanup(delete_command):
     try:
-        if str(command) is 'Y':
+        if (delete_command == True):
             if (len(live_inst_list) == 0):
                 print 'Error ! incorrectly called delete on a empty cluster: instances do not exist'
             elif (len(live_inst_list) > 0):
@@ -117,11 +82,9 @@ def delete_cluster(command):
             return
 
     except:
-        print 'Erro ! Unexpected error in delete cluster'
+        logging.debug('Could not delete cluster')
+        return False
 
-                     
-                    
-            
             
             
             

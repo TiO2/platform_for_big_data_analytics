@@ -1,6 +1,8 @@
 #This file holds the structures and methods to query user inputs and
 #and respond with appropriate id's to spin up VMs
 
+status_message_list = {'200': 'Success', '400': '400 Bad Request', '404': '404 Not Found', '500': '500 Error'}
+
 specification_choice_list = {'1': 'm1.large', '2': 'm1.medium'}
 
 specification_id_list = {'m1.large': '4', 'm1.medium': '3'}
@@ -20,6 +22,10 @@ def get_specification_name(spec_choice):
 
 def get_image_id(image_name):
     return image_id_list[image_name]
+
+def get_status_message(status_code):
+    return status_message_list[status_code]
+    
 
 
     
