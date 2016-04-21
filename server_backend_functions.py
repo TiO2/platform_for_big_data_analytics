@@ -1,4 +1,4 @@
-from auto_spin_up_api_calls import *
+from api_calls import *
 
 #CREATE CLUSTER
 def create_cluster(number_of_nodes, spec_name):
@@ -85,7 +85,48 @@ def perform_cluster_cleanup(delete_command):
         logging.debug('Could not delete cluster')
         return False
 
+
+#GET PRIVATE IPS OF VMS
+def get_private_ips(running_inst_list):
+
+    try:
+
+        number_of_instances = len(running_inst_list)
+        
+        for inst_name in running_inst_list.keys():
+            response_status, vm_private_ip_addr = get_instance_details(running_inst_list[inst_name])
+            if (response_status == 200):
+                live_private_ip_list[inst_name] = vm_private_ip_addr
+                number_of_instances = number_of_instances - 1
+                print 'the private ip address of ' + inst_name + ' is ' + str(vm_private_ip_addr)
+            else:
+                print 'could not get private ip address of ' + inst_name + '\n'
+
+        if (number_of_instances == 0):
+            print 'All private ips obtained successfully'
+            print live_private_ip_list
+        
+        else:
+            print 'Could not get private IP addresses of ' + str(number_of_instances) + ' instances'
+
+    except:
+        logging.debug('could not get private ip addresses of the VMs')
+        return
+
+                
             
+        
+
+
+
+
+
+
+
+
+
+
+
             
             
         

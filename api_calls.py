@@ -84,6 +84,23 @@ def add_floating_ip_to_instance(instance_id, floating_ip_id):
         logging.info('exception in add_floating_ip_to_instance')
         
 
+#Get Instance details
+def get_instance_details(instance_id):
+
+    try:
+        request_url = base_url + project_id + '/instances/' + instance_id
+
+        response = requests.get(request_url, headers = headers)
+        print response.text + '\n'
+        print response.status_code
+
+        r = response.json()      
+        private_ip_addr = r['instance']['network_info']['internal'][0]['addr']
+        return response.status_code, private_ip_addr
+
+    except:
+        logging.info('exception in get_instance_details')
+
 
 
 #Sequence of Delete operations
@@ -117,6 +134,9 @@ def delete_unused_floating_ip(floating_ip_id):
 
     except:
         logging.info('error in delete_unused_floating_ip')
+
+
+        
 
 
 

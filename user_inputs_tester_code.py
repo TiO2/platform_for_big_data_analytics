@@ -1,6 +1,6 @@
 #Take inputs from ser to spin up his VM
 from utils import *
-from rest_api_initial import *
+from server_backend_functions import *
 
 
 print 'Hello ! \n'
@@ -26,7 +26,10 @@ if (number_of_nodes > 0):
 
     if (create_status == False):
         print 'Sorry ! We could not create your cluster at this time\n'
-        cleanup_status = perform_cluster_cleanup(True)   
+        cleanup_status = perform_cluster_cleanup(True)
+
+    else:
+        get_private_ips(live_inst_list)        
 
 else:
     print 'input invalid no nodes to create\n'

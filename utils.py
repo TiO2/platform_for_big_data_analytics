@@ -12,6 +12,7 @@ image_id_list = {'CentOS_Base': 'd2d7ed2c-1372-48dc-9f5d-34a7a52dd760', 'CentOS'
 live_inst_list = {}
 live_floating_ip_list = {}
 live_floating_ip_id_list = {}
+live_private_ip_list = {}
 
 
 def get_specification_id(spec_name):

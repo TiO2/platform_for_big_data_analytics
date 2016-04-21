@@ -6,8 +6,6 @@
 base_url = 'http://transcirrus-1.oscar.priv:6969/v1.0/'
 headers = {'Accept' : 'application/json' , 'username' : 'admin_team7' , 'password' : 'team7rocks'}
 project_id = '2aad80ab68d041649d1823ce024c85de'
-hortonworks_image_id = '644d6b91-c831-43f1-80ab-976e38fad506'
-
 
 #default public network id registered with openstack neutron - use carefully
 network_id = 'b3bb7b4c-d65a-422b-858e-a14af9800963'
