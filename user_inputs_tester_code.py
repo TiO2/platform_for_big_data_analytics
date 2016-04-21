@@ -26,7 +26,7 @@ if (number_of_nodes > 0):
 
     if (create_status == False):
         print 'Sorry ! We could not create your cluster at this time\n'
-        cleanup_status = perform_cluster_cleanup(True)
+        cleanup_status = perform_cluster_cleanup(True, live_inst_list, live_floating_ip_id_list, live_floating_ip_list)
 
     else:
         get_private_ips(live_inst_list)        

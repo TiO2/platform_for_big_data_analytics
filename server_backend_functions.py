@@ -52,7 +52,7 @@ def create_cluster(number_of_nodes, spec_name):
 
 
 #DELETE CLUSTER
-def perform_cluster_cleanup(delete_command):
+def perform_cluster_cleanup(delete_command, live_inst_list, live_floating_ip_id_list, live_floating_ip_list):
     try:
         if (delete_command == True):
             if (len(live_inst_list) == 0):
