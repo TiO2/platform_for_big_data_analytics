@@ -1,3 +1,7 @@
+import subprocess
+import sys
+import json
+import time
 #This file holds the structures and methods to query user inputs and
 #and respond with appropriate id's to spin up VMs
 

@@ -1,6 +1,8 @@
 
 import subprocess
 import sys
+import json
+
 
 def ssh_command(key,user,host,cmd):
 	ssh = subprocess.Popen(['ssh -o StrictHostKeyChecking=no -i {} {}@{} "{}"'.format(key,user,host,cmd)],
@@ -15,9 +17,28 @@ def ssh_command(key,user,host,cmd):
 	    print result
 	return result
 
+
+
+def updateJsonFile(hostmapping,cluster_nodes):
+	jsonFile = open(hostmapping, "r")
+	data = json.load(jsonFile)
+	jsonFile.close()
+
+	data["host_groups"][0]["hosts"][0]["fqdn"] = cluster_nodes[0][0]
+	
+	for i,instance in enumerate(cluster_nodes[1:]):
+		data["host_groups"][1]["hosts"][i]["fqdn"] = instance[0]
+
+	jsonFile = open("map.json", "w+")
+	jsonFile.write(json.dumps(data))
+	jsonFile.close()
+
+
+
+
 # Get Cluster Inputs
 key = "seckey_team7_6761.pem"
-instances = [("vm1","10.23.2.38"),("vm2","10.23.2.222"),("vm3","10.23.2.183")]
+instances = [("vm1","10.23.2.234"),("vm2","10.23.2.235"),("vm3","10.23.2.236")]
 blueprint = "blueprint.json"
 hostmapping = "map.json"
 user = "cloud-user"
@@ -75,6 +96,10 @@ for hn,ip in instances[1:]:
 
 #validate that all hosts are registered with Ambari server
 subprocess.call("curl -u admin:admin http://"+instances[0][1]+":8080/api/v1/hosts",shell=True)
+
+# Update map.json
+cluster_nodes = instances[1:]
+updateJsonFile(hostmapping,cluster_nodes)
 
 
 #Modify the map.json according to cluster_node_private_ips

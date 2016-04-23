@@ -1,10 +1,41 @@
 from api_calls import *
 
+# SSH Command
+def ssh_command(key,user,host,cmd):
+    ssh = subprocess.Popen(['ssh -o StrictHostKeyChecking=no -i {} {}@{} "{}"'.format(key,user,host,cmd)],
+                           shell=True,
+                           stdout=subprocess.PIPE,
+                           stderr=subprocess.PIPE)
+    result = ssh.stdout.readlines()
+    if result == []:
+        error = ssh.stderr.readlines()
+        print >>sys.stderr, "ERROR: %s" % error
+    else:
+        print result
+    return result
+
+
+# Update Json File
+def updateJsonFile(hostmapping,cluster_nodes):
+    jsonFile = open(hostmapping, "r")
+    data = json.load(jsonFile)
+    jsonFile.close()
+
+    data["host_groups"][0]["hosts"][0]["fqdn"] = cluster_nodes[0][0]
+    
+    for i,instance in enumerate(cluster_nodes[1:]):
+        data["host_groups"][1]["hosts"][i]["fqdn"] = instance[0]
+
+    jsonFile = open("map.json", "w+")
+    jsonFile.write(json.dumps(data))
+    jsonFile.close()
+
+
 #CREATE CLUSTER
 def create_cluster(number_of_nodes, spec_name):
 
     try:
-        
+        instances = []
         nodes = number_of_nodes
 
         spec_id = get_specification_id(spec_name)
@@ -29,6 +60,7 @@ def create_cluster(number_of_nodes, spec_name):
                         add_fltg_status, floating_ip_addr = add_floating_ip_to_instance(inst_id, floating_ip_id)
                         if (add_fltg_status == 200):
                             live_floating_ip_list[vm_name] = floating_ip_addr
+                            instances.append((vm_name,floating_ip_addr))
                             nodes = nodes - 1
                         else:
                             logging.info('creating instance failed - issue - ' + vm_name + ' floating IP could not be attached')                            
@@ -41,15 +73,75 @@ def create_cluster(number_of_nodes, spec_name):
       
         print live_inst_list 
         print live_floating_ip_list 
+        print instances
         print live_floating_ip_id_list
 
         if(nodes == 0):
             print 'All nodes created successfully'
-            return True
+            return True,instances
                 
     except:
         logging.debug('exception in create_cluster')
-        return False
+        return False,instances
+
+def create_ambari_cluster(instances):
+    print "Creating Ambari Cluster !!!"
+    print instances
+
+    key = security_key_name+".pem"
+    blueprint = "blueprint.json"
+    hostmapping = "map.json"
+    user = "cloud-user"
+
+    # Hostname Resolution
+    # For all instance started
+    # In /etc/hosts append the following
+    # instance_name instance_floating_ip
+    # instance_name.transcirrus-1.oscar.priv instance_floating_ip
+
+    for vm in instances:
+        for hn,pub_ip,pri_ip in instances:
+            cmd = 'echo {} | sudo tee -a /etc/hosts'.format("")
+            ssh_command(key,user,vm[1],cmd)
+
+            cmd = 'echo {} {} | sudo tee -a /etc/hosts'.format(pri_ip,hn)
+            ssh_command(key,user,vm[1],cmd)
+
+            cmd = 'echo {} {} | sudo tee -a /etc/hosts'.format(pri_ip,hn+".transcirrus-1.oscar.priv")
+            ssh_command(key,user,vm[1],cmd)
+
+    # Restart Ambari Ambari Server
+    cmd = "sudo service ambari-server restart"
+    ssh_command(key,user,instances[0][1],cmd)
+
+    # Configure Agent and restart
+    for hn,pub_ip,pri_ip in instances[1:]:
+        regex = "s/hostname=localhost/hostname={}/g".format(instances[0][2])
+
+        print pub_ip
+        cmd = 'sudo sed -i "'+regex+'" /etc/ambari-agent/conf/ambari-agent.ini'
+        print cmd
+        ssh_command(key,user,pub_ip,cmd)
+
+        cmd = "sudo ambari-agent restart"
+        print cmd
+        ssh_command(key,user,pub_ip,cmd)
+
+    #validate that all hosts are registered with Ambari server
+    subprocess.call("curl -u admin:admin http://"+instances[0][1]+":8080/api/v1/hosts",shell=True)
+
+    # Update map.json
+    cluster_nodes = instances[1:]
+    updateJsonFile(hostmapping,cluster_nodes)
+
+    # Register Blueprint
+    subprocess.call('curl -H "X-Requested-By: ambari" -X POST -u admin:admin http://'+instances[0][1]+':8080/api/v1/blueprints/my_blueprint2 -d @blueprint.json',shell=True)
+    subprocess.call('curl -H "X-Requested-By: ambari" -X POST -u admin:admin http://'+instances[0][1]+':8080/api/v1/clusters/my_blueprint2 -d @map.json',shell=True)
+
+    #monitor progress
+    subprocess.call('curl -u admin:admin -i -H "X-Requested-By: ambari" -X GET http://'+instances[0][1]+':8080/api/v1/clusters/cluster_name/requests/1 | grep progress_percent',shell=True)
+
+
 
 
 
@@ -107,6 +199,7 @@ def get_private_ips(running_inst_list):
         if (number_of_instances == 0):
             print 'All private ips obtained successfully'
             print live_private_ip_list
+            return live_private_ip_list
         
         else:
             print 'Could not get private IP addresses of ' + str(number_of_instances) + ' instances'

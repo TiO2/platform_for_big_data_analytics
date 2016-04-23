@@ -23,14 +23,21 @@ try:
 
         print 'creating the cluster\n'
         if (spec_name is not ''):
-            create_status = create_cluster(number_of_nodes, spec_name)
+            create_status,instances = create_cluster(number_of_nodes + 1, spec_name)
 
         if (create_status == False):
             print 'Sorry ! We could not create your cluster at this time\n'
             cleanup_status = perform_cluster_cleanup(True, live_inst_list, live_floating_ip_id_list, live_floating_ip_list)
 
         else:
-            get_private_ips(live_inst_list)        
+            private_ip_dict = get_private_ips(live_inst_list)
+            instances = map(lambda x:x+(private_ip_dict.get(x[0]),),instances)
+
+            print "Going to Sleep !! \n"
+            time.sleep(30)
+            print "I am Awake !! \n"
+
+            create_ambari_cluster(instances)
 
     else:
         print 'input invalid no nodes to create\n'

@@ -90,3 +90,255 @@ INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): 
 DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/55796b55-61e9-4351-9626-38f62574d9c8 HTTP/1.1" 200 75
 INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
 DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/835a5eb7-2342-452c-acb5-0c776a586732 HTTP/1.1" 200 75
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/debf0135-ff31-4175-8425-d21878f4c430/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/ce3579d3-e3e0-4871-8026-08f572099ff2/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/290a2861-9fd2-4d8b-bb96-e8c6deb3307e HTTP/1.1" 200 1403
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/e1219877-2b28-4d14-ace6-95efdc7c4ef2 HTTP/1.1" 200 1403
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+INFO:root:error in delete_instance
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+INFO:root:error in delete_instance
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+INFO:root:error in delete_unused_floating_ip
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/debf0135-ff31-4175-8425-d21878f4c430 HTTP/1.1" 404 133
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/a1b471d1-e633-4325-b397-36cb48dce867/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/42936781-93ce-4faf-84ee-dbeb5140850e/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/9a777496-9b49-49b6-8d08-9cdc06f57114/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/da6bce4e-02fa-4a7b-958c-062047a63def HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/a78be647-164a-43c4-82a4-c843b1a8a2b8 HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/e0c7e8a9-c44f-4922-83aa-760da676ffc9 HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+INFO:root:error in delete_instance
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+INFO:root:error in delete_instance
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+INFO:root:error in delete_instance
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+INFO:root:error in delete_unused_floating_ip
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/9a777496-9b49-49b6-8d08-9cdc06f57114 HTTP/1.1" 200 75
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+INFO:root:error in delete_unused_floating_ip
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/212d7896-cfdc-4e81-9aa6-2505eb25304d/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/dfb296c5-65a6-45f1-b157-f7bac2c9bbb1/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/6604ef88-46dc-42ca-83b7-fa7f1c551240/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/1178b4ff-b7e7-43ee-bcdf-7c1f08418e37 HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/2f1e7553-7205-4681-a611-b4b8c31da665 HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/0cc84c55-f8b6-44d3-8bcc-6920884bb812 HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/2aad80ab68d041649d1823ce024c85de/instances/1178b4ff-b7e7-43ee-bcdf-7c1f08418e37 HTTP/1.1" 200 72
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/2aad80ab68d041649d1823ce024c85de/instances/2f1e7553-7205-4681-a611-b4b8c31da665 HTTP/1.1" 200 72
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/2aad80ab68d041649d1823ce024c85de/instances/0cc84c55-f8b6-44d3-8bcc-6920884bb812 HTTP/1.1" 200 72
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/dfb296c5-65a6-45f1-b157-f7bac2c9bbb1 HTTP/1.1" 200 75
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/6604ef88-46dc-42ca-83b7-fa7f1c551240 HTTP/1.1" 200 75
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/212d7896-cfdc-4e81-9aa6-2505eb25304d HTTP/1.1" 200 75
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/c322eddb-90f8-48a0-99a9-dbd0b70a4b8f/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/4e90461e-53a3-46a7-8a8e-f783cd504a9c/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/77687ab5-f4dd-4aeb-92b1-38a1be6a75b1/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/cf5b0e3c-e31a-4488-b5ae-3ec162e0e8a3 HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/92debc73-67fc-40ca-9eb0-4ba21cae714e HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/b3e6150f-1032-40e0-9b38-1a4ef3ed2d4e HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/2aad80ab68d041649d1823ce024c85de/instances/cf5b0e3c-e31a-4488-b5ae-3ec162e0e8a3 HTTP/1.1" 200 72
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/2aad80ab68d041649d1823ce024c85de/instances/92debc73-67fc-40ca-9eb0-4ba21cae714e HTTP/1.1" 200 72
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/2aad80ab68d041649d1823ce024c85de/instances/b3e6150f-1032-40e0-9b38-1a4ef3ed2d4e HTTP/1.1" 200 72
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/4e90461e-53a3-46a7-8a8e-f783cd504a9c HTTP/1.1" 200 75
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/77687ab5-f4dd-4aeb-92b1-38a1be6a75b1 HTTP/1.1" 200 75
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/c322eddb-90f8-48a0-99a9-dbd0b70a4b8f HTTP/1.1" 200 75
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/854cfd55-c4e8-4893-9e0d-04a4dc8ba879/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/72a603d4-2e15-4de3-8771-02c31a5b443c/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/32cb4b54-794a-4b7c-9f69-b4b6d803a201/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/7a5c0a16-ad96-405f-9c69-50f8346552b7 HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/f372ead9-2280-4df9-82e4-0bc489a7124f HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/2bd898ba-1689-4d1d-956b-90f03f926ff6 HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/49b75862-a0e9-4480-b351-b14eb9b57702/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/4315cafe-5a10-44e1-8047-dceab2a64ab1/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/0ebbf4f5-8e6e-46a7-878f-f74050c20649/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/7726eadc-0ed5-43c9-b2d2-566f9d96383f HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/101be87a-65bc-48a4-8c9a-baac5afc42e6 HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/8e5d07ff-bf99-4125-a864-88469551d4fb HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/2aad80ab68d041649d1823ce024c85de/instances/7726eadc-0ed5-43c9-b2d2-566f9d96383f HTTP/1.1" 200 72
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/2aad80ab68d041649d1823ce024c85de/instances/101be87a-65bc-48a4-8c9a-baac5afc42e6 HTTP/1.1" 200 72
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/2aad80ab68d041649d1823ce024c85de/instances/8e5d07ff-bf99-4125-a864-88469551d4fb HTTP/1.1" 200 72
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/4315cafe-5a10-44e1-8047-dceab2a64ab1 HTTP/1.1" 200 75
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/0ebbf4f5-8e6e-46a7-878f-f74050c20649 HTTP/1.1" 200 75
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/49b75862-a0e9-4480-b351-b14eb9b57702 HTTP/1.1" 200 75
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/2ca6874b-211e-4189-982c-ef348cf201d8/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/13dea941-2e59-47db-b13e-c48a063217dd/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/3ac82d07-ef3f-473e-a1ba-a8948e23e8c2/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/12056e0e-e841-4a5d-b281-b30ab86c05da HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/efd47097-1853-4d90-9a53-d69d01318182 HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/daebf5e0-aa35-4a04-b021-30eb499bc1b1 HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+INFO:root:error in delete_instance
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/2aad80ab68d041649d1823ce024c85de/instances/efd47097-1853-4d90-9a53-d69d01318182 HTTP/1.1" 200 72
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/2aad80ab68d041649d1823ce024c85de/instances/daebf5e0-aa35-4a04-b021-30eb499bc1b1 HTTP/1.1" 200 72
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/13dea941-2e59-47db-b13e-c48a063217dd HTTP/1.1" 200 75
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/3ac82d07-ef3f-473e-a1ba-a8948e23e8c2 HTTP/1.1" 200 75
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"DELETE /v1.0/floating_ips/2ca6874b-211e-4189-982c-ef348cf201d8 HTTP/1.1" 200 75
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/7a423105-ab42-4532-8df0-b727591cc65c/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/7683a144-4e38-4fdd-beb1-e0901088db09/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/2aad80ab68d041649d1823ce024c85de/instances HTTP/1.1" 200 272
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips HTTP/1.1" 200 106
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"POST /v1.0/floating_ips/37d917d9-b34e-4816-8630-9de321df48d5/action HTTP/1.1" 200 183
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/fd609460-d18f-47ad-b907-f86071556c55 HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/6e0164a9-dafd-4e69-9f96-a5349f0b8d51 HTTP/1.1" 200 1400
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): transcirrus-1.oscar.priv
+DEBUG:requests.packages.urllib3.connectionpool:"GET /v1.0/2aad80ab68d041649d1823ce024c85de/instances/a26ed07e-3c03-40b0-a851-dfdc7123ba29 HTTP/1.1" 200 1400
