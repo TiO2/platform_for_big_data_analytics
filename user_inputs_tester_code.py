@@ -45,9 +45,9 @@ try:
         print 'You entered No !!\n'
 
 
-    command = raw_input('Do you want to add a new node to your cluster [Y/N] ?')
+    add_command = raw_input('Do you want to add a new node to your cluster [Y/N] ?')
 
-    if (command is 'Y'):
+    if (add_command is 'Y'):
         print 'Select resource specifications for your new node \n\r'
         print 'SPEC 1: m1.large\n\r'
         print 'SPEC 2: m1.medium\n\r'
@@ -57,8 +57,24 @@ try:
     else:
         print 'You entered No !!\n'
 
-    
+    inst_name_list = []
 
+    for key in live_inst_list.keys():
+        inst_name_list.append(key)
+
+    inst_name_list.sort()
+
+    print 'Your current live instance are \n'
+    print inst_name_list
+    del_vm_name = raw_input('Enter the name of the VM you want to delete or enter N to skip ')
+
+    if (del_vm_name is not 'N'):
+        inst_id = live_inst_list[del_vm_name]
+        floating_ip_id = live_floating_ip_id_list[del_vm_name]
+        delete_node(inst_id)
+    else:
+        print 'You entered No !!\n'
+           
 except:
     cleanup_status = perform_cluster_cleanup(True, live_inst_list, live_floating_ip_id_list, live_floating_ip_list)
     

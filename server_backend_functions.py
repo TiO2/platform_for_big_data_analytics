@@ -14,10 +14,10 @@ def create_cluster(number_of_nodes, spec_name):
             while(nodes > 0):
 
                 if (nodes == number_of_nodes):
-                    image_id = get_image_id('Ambari Server')
-                else: image_id = get_image_id('CentOS')
+                    image_id = get_image_id('ambari server')
+                else: image_id = get_image_id('ambari agent 2')
                 
-                vm_name = 'VM' + str(str(number_of_nodes - nodes + 1))                
+                vm_name = 'vm' + str(str(number_of_nodes - nodes + 1))                
                 inst_status, inst_id = launch_new_instance(vm_name, image_id, spec_id)
                 print 'status of ' + vm_name + ' ' + str(inst_status) + '\n'
 
@@ -38,9 +38,7 @@ def create_cluster(number_of_nodes, spec_name):
                     logging.info('creating instance failed - issue - ' + vm_name + ' could not be created')
 
                 print 'number of nodes left ' + str(nodes) + '\n'
-
-
-        
+      
         print live_inst_list 
         print live_floating_ip_list 
         print live_floating_ip_id_list
@@ -156,8 +154,10 @@ def add_new_node(spec_name):
 
 
 #DELETE A NEW NODE
-def delete_new_node():
+def delete_node(vm_name):
     pass
+
+    
 
     
 
