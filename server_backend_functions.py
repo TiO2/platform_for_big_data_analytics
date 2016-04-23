@@ -7,12 +7,16 @@ def create_cluster(number_of_nodes, spec_name):
         
         nodes = number_of_nodes
 
-        image_id = get_image_id('CentOS')
         spec_id = get_specification_id(spec_name)
         print spec_id + '\n'
 
         if (nodes > 0):
             while(nodes > 0):
+
+                if (nodes == number_of_nodes):
+                    image_id = get_image_id('Ambari Server')
+                else: image_id = get_image_id('CentOS')
+                
                 vm_name = 'VM' + str(str(number_of_nodes - nodes + 1))                
                 inst_status, inst_id = launch_new_instance(vm_name, image_id, spec_id)
                 print 'status of ' + vm_name + ' ' + str(inst_status) + '\n'
@@ -112,6 +116,50 @@ def get_private_ips(running_inst_list):
     except:
         logging.debug('could not get private ip addresses of the VMs')
         return
+
+
+#ADD A NEW NODE
+def add_new_node(spec_name):
+
+    try:
+        
+        image_id = get_image_id('CentOS')
+        spec_id = get_specification_id(spec_name)
+        print spec_id + '\n'
+
+        vm_name = 'new VM'               
+        inst_status, inst_id = launch_new_instance(vm_name, image_id, spec_id)
+        print 'status of ' + vm_name + ' ' + str(inst_status) + '\n'
+
+        if (inst_status == 200):
+            live_inst_list[vm_name] = inst_id
+            fltg_ip_status, floating_ip_id = create_new_floating_ip()
+            if (fltg_ip_status == 200):
+                live_floating_ip_id_list[vm_name] = floating_ip_id
+                add_fltg_status, floating_ip_addr = add_floating_ip_to_instance(inst_id, floating_ip_id)
+                if (add_fltg_status == 200):
+                    live_floating_ip_list[vm_name] = floating_ip_addr
+                else:
+                    logging.info('creating instance failed - issue - ' + vm_name + ' floating IP could not be attached')                            
+            else:
+                logging.info('creating instance failed - issue - ' + vm_name + ' floating IP could not be created')                    
+        else:
+            logging.info('creating instance failed - issue - ' + vm_name + ' could not be created')
+
+        print 'new node created !!\n'
+        return
+
+    except:
+        logging.info('Could not add a new node')
+        return
+
+
+
+#DELETE A NEW NODE
+def delete_new_node():
+    pass
+
+    
 
                 
             

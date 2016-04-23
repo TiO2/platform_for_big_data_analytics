@@ -1,38 +1,69 @@
-#Take inputs from ser to spin up his VM
+#Take inputs from user to spin up/ spin down VMs
 from utils import *
 from server_backend_functions import *
 
+try:
+    
+    print 'Hello ! \n'
 
-print 'Hello ! \n'
+    number_of_nodes = input('Enter number of nodes in the cluster: ')
+    print '\n' + str(number_of_nodes) + '\n'
 
-number_of_nodes = input('Enter number of nodes in the cluster: ')
-print '\n' + str(number_of_nodes) + '\n'
+    if (number_of_nodes > 0):
 
-if (number_of_nodes > 0):
+        spec_name = ''
 
-    spec_name = ''
+        print 'Select resource specifications for your cluster(specify numbers) \n\r'
+        print 'SPEC 1: m1.large\n\r'
+        print 'SPEC 2: m1.medium\n\r'
 
-    print 'Select resource specifications for your Spark cluster(specify numbers) \n\r'
-    print 'SPEC 1: m1.large\n\r'
-    print 'SPEC 2: m1.medium\n\r'
+        spec_choice = input('Enter the spec number: ')
+        spec_name = get_specification_name(spec_choice)
+        print spec_name + '\n'
 
-    spec_choice = input('Enter the spec number: ')
-    spec_name = get_specification_name(spec_choice)
-    print spec_name + '\n'
+        print 'creating the cluster\n'
+        if (spec_name is not ''):
+            create_status = create_cluster(number_of_nodes, spec_name)
 
-    print 'creating the cluster\n'
-    if (spec_name is not ''):
-        create_status = create_cluster(number_of_nodes, spec_name)
+        if (create_status == False):
+            print 'Sorry ! We could not create your cluster at this time\n'
+            cleanup_status = perform_cluster_cleanup(True, live_inst_list, live_floating_ip_id_list, live_floating_ip_list)
 
-    if (create_status == False):
-        print 'Sorry ! We could not create your cluster at this time\n'
-        cleanup_status = perform_cluster_cleanup(True, live_inst_list, live_floating_ip_id_list, live_floating_ip_list)
+        else:
+            get_private_ips(live_inst_list)        
 
     else:
-        get_private_ips(live_inst_list)        
+        print 'input invalid no nodes to create\n'
 
-else:
-    print 'input invalid no nodes to create\n'
+
+    command = raw_input('Do you want to delete your cluster [Y/N] ?')
+
+    if (command is 'Y'):
+        cleanup_status = perform_cluster_cleanup(True, live_inst_list, live_floating_ip_id_list, live_floating_ip_list)
+        print str(cleanup_status) + ' success\n'
+    else:
+        print 'You entered No !!\n'
+
+
+    command = raw_input('Do you want to add a new node to your cluster [Y/N] ?')
+
+    if (command is 'Y'):
+        print 'Select resource specifications for your new node \n\r'
+        print 'SPEC 1: m1.large\n\r'
+        print 'SPEC 2: m1.medium\n\r'
+        spec_choice = input('Enter the spec number: ')
+        spec_name = get_specification_name(spec_choice)
+        add_new_node(spec_name)
+    else:
+        print 'You entered No !!\n'
+
+    
+
+except:
+    cleanup_status = perform_cluster_cleanup(True, live_inst_list, live_floating_ip_id_list, live_floating_ip_list)
+    
+    
+
 
 
 
