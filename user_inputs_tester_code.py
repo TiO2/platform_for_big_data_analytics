@@ -33,9 +33,13 @@ try:
             private_ip_dict = get_private_ips(live_inst_list)
             instances = map(lambda x:x+(private_ip_dict.get(x[0]),),instances)
 
-            print "Going to Sleep !! \n"
-            time.sleep(30)
-            print "I am Awake !! \n"
+            print "Following instances created :: "
+            print instances
+
+
+            print "Sleeping !! \n"
+            time.sleep(60)
+            print "Awake !! \n"
 
             create_ambari_cluster(instances)
 

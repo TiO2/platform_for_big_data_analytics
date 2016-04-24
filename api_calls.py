@@ -4,7 +4,7 @@ from utils import *
 import requests
 import json
 import logging
-
+import time
 
 logging.basicConfig(filename='api_calls_log.log', level=logging.DEBUG)
 #There will be two sequence of operations - 1. Create    2. Delete

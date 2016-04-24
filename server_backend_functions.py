@@ -26,7 +26,7 @@ def updateJsonFile(hostmapping,cluster_nodes):
     for i,instance in enumerate(cluster_nodes[1:]):
         data["host_groups"][1]["hosts"][i]["fqdn"] = instance[0]
 
-    jsonFile = open("map.json", "w+")
+    jsonFile = open(hostmapping, "w+")
     jsonFile.write(json.dumps(data))
     jsonFile.close()
 
@@ -45,7 +45,7 @@ def create_cluster(number_of_nodes, spec_name):
             while(nodes > 0):
 
                 if (nodes == number_of_nodes):
-                    image_id = get_image_id('ambari server')
+                    image_id = get_image_id('ambari-server2')
                 else: image_id = get_image_id('ambari agent 2')
                 
                 vm_name = 'vm' + str(str(number_of_nodes - nodes + 1))                
@@ -86,12 +86,13 @@ def create_cluster(number_of_nodes, spec_name):
 
 def create_ambari_cluster(instances):
     print "Creating Ambari Cluster !!!"
-    print instances
 
+    no_cluster_nodes = str(len(instances) - 1)
     key = security_key_name+".pem"
-    blueprint = "blueprint.json"
-    hostmapping = "map.json"
+    blueprint = "blueprint"+no_cluster_nodes+".json"
+    hostmapping = "map"+no_cluster_nodes+".json"
     user = "cloud-user"
+    cluster_name = no_cluster_nodes+"_Node_Cluster"
 
     # Hostname Resolution
     # For all instance started
@@ -100,6 +101,7 @@ def create_ambari_cluster(instances):
     # instance_name.transcirrus-1.oscar.priv instance_floating_ip
 
     for vm in instances:
+        print "Adding hostname to private_ip resolution in /etc/hosts for "+str(vm)
         for hn,pub_ip,pri_ip in instances:
             cmd = 'echo {} | sudo tee -a /etc/hosts'.format("")
             ssh_command(key,user,vm[1],cmd)
@@ -111,35 +113,49 @@ def create_ambari_cluster(instances):
             ssh_command(key,user,vm[1],cmd)
 
     # Restart Ambari Ambari Server
+    print "Restarting Ambari Server"
     cmd = "sudo service ambari-server restart"
     ssh_command(key,user,instances[0][1],cmd)
 
-    # Configure Agent and restart
+    # Configure Agent and Restart
     for hn,pub_ip,pri_ip in instances[1:]:
         regex = "s/hostname=localhost/hostname={}/g".format(instances[0][2])
-
-        print pub_ip
+        print "Configuring Agent and Restarting for"
+        print hn,pub_ip,pri_ip
         cmd = 'sudo sed -i "'+regex+'" /etc/ambari-agent/conf/ambari-agent.ini'
-        print cmd
         ssh_command(key,user,pub_ip,cmd)
 
         cmd = "sudo ambari-agent restart"
-        print cmd
         ssh_command(key,user,pub_ip,cmd)
 
+    print "Waiting for Ambari Agent to restart ..."
+    time.sleep(10)
     #validate that all hosts are registered with Ambari server
-    subprocess.call("curl -u admin:admin http://"+instances[0][1]+":8080/api/v1/hosts",shell=True)
+    cmd = "curl -u admin:admin http://"+instances[0][1]+":8080/api/v1/hosts"
+    print cmd
+    subprocess.call(cmd,shell=True)
 
     # Update map.json
     cluster_nodes = instances[1:]
     updateJsonFile(hostmapping,cluster_nodes)
 
     # Register Blueprint
-    subprocess.call('curl -H "X-Requested-By: ambari" -X POST -u admin:admin http://'+instances[0][1]+':8080/api/v1/blueprints/my_blueprint2 -d @blueprint.json',shell=True)
-    subprocess.call('curl -H "X-Requested-By: ambari" -X POST -u admin:admin http://'+instances[0][1]+':8080/api/v1/clusters/my_blueprint2 -d @map.json',shell=True)
+    cmd = 'curl -H "X-Requested-By: ambari" -X POST -u admin:admin http://'+instances[0][1]+':8080/api/v1/blueprints/blueprint'+no_cluster_nodes+' -d @'+blueprint
+    print "\n"+cmd
+    subprocess.call(cmd,shell=True)
+
+    cmd = 'curl -H "X-Requested-By: ambari" -X POST -u admin:admin http://'+instances[0][1]+':8080/api/v1/clusters/'+cluster_name+' -d @'+hostmapping
+    print "\n"+cmd
+    subprocess.call(cmd,shell=True)
 
     #monitor progress
-    subprocess.call('curl -u admin:admin -i -H "X-Requested-By: ambari" -X GET http://'+instances[0][1]+':8080/api/v1/clusters/cluster_name/requests/1 | grep progress_percent',shell=True)
+    cmd = 'curl -u admin:admin -i -H "X-Requested-By: ambari" -X GET http://'+instances[0][1]+':8080/api/v1/clusters/cluster_name/requests/'+cluster_name+' | grep progress_percent'
+    print "\n"+cmd
+    subprocess.call(cmd,shell=True)
+
+    print "\nAll seems well"
+    print "Access Ambari Web on http://" + instances[0][1] + ":8080"
+    print "Access Apache Zeppelin Interface on http://" + instances[1][1] + ":9995"
 
 
 

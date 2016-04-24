@@ -11,7 +11,7 @@ specification_choice_list = {'1': 'm1.large', '2': 'm1.medium'}
 
 specification_id_list = {'m1.large': '4', 'm1.medium': '3'}
 
-image_id_list = {'ambari server': '2158b9e2-b3de-4a4e-aceb-c228fb98b0eb', 'ambari agent 2': '11acc942-e212-4239-8ea2-c341b0a671a4'}
+image_id_list = {'ambari server': '2158b9e2-b3de-4a4e-aceb-c228fb98b0eb', 'ambari agent 2': '11acc942-e212-4239-8ea2-c341b0a671a4' ,'ambari-server2': '9cc09993-9ac8-4d3a-871d-6b4596f618d2', 'ambari-agent4': 'a410e1d7-76bb-4eef-bb94-90d12360d317'}
 
 live_inst_list = {}
 live_floating_ip_list = {}

@@ -1,1 +1,0 @@
-{"blueprint": "my_blueprint2", "default_password": "hadoop", "host_groups": [{"hosts": [{"fqdn": "vm2"}], "name": "host_group_1"}, {"hosts": [{"fqdn": "vm3"}], "name": "host_group_2"}]}
