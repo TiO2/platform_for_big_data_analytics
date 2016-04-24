@@ -89,8 +89,8 @@ def create_ambari_cluster(instances):
 
     no_cluster_nodes = str(len(instances) - 1)
     key = security_key_name+".pem"
-    blueprint = "blueprint"+no_cluster_nodes+".json"
-    hostmapping = "map"+no_cluster_nodes+".json"
+    blueprint = "blueprints/blueprint"+no_cluster_nodes+".json"
+    hostmapping = "blueprints/map"+no_cluster_nodes+".json"
     user = "cloud-user"
     cluster_name = no_cluster_nodes+"_Node_Cluster"
 
