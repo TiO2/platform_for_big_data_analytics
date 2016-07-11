@@ -1,2 +1,4 @@
-# configure_big_data_analytics_cloud
-configure_big_data_analytics_cloud
+# cloud_platform_for_big_data_analytics
+cloud_platform_for_big_data_analytics
+
+We have built a cloud platform for Big Data Analytics. The goal of creating such a platform is to allow its users the ability to run data intensive and/or computationally intensive algorithms on cloud infrastructure. The targeted users are statisticians or data science personnel who might not have the knowledge of setting up their big data cluster environment or users who simply want a ready to use big data analytics cluster. We provide a cloud platform on which users can spin up a Hadoop or Spark cluster within minutes, submit jobs, do interactive data processing in a notebook environment and also monitor their cluster performance. The platform is powered by the open source Hortonworks Data Platform which provides an array of the popular and latest big data processing tools. We have been able to completely automate the process of cluster creation from instance spin up on the TransCirrus private cloud to configuring services required for cluster creation. Our platform supports multiple clusters and provides an easy to use web UI to manage them along with a dashboard to monitor various metrics of a cluster, its nodes, and its running services.
